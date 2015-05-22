@@ -26,16 +26,17 @@ public class frminicio extends javax.swing.JFrame {
 
         grupo = new javax.swing.ButtonGroup();
         escritorio = new javax.swing.JDesktopPane();
+        jDesktopPane1 = new javax.swing.JDesktopPane();
         lblidusuario = new javax.swing.JLabel();
-        lblnombre = new javax.swing.JLabel();
-        lblapellido = new javax.swing.JLabel();
-        lblacceso = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
         jRadioButton3 = new javax.swing.JRadioButton();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        lblacceso = new javax.swing.JLabel();
+        lblapellido = new javax.swing.JLabel();
+        lblnombre = new javax.swing.JLabel();
         menuBar = new javax.swing.JMenuBar();
         musismaster = new javax.swing.JMenu();
         muarchivos = new javax.swing.JMenu();
@@ -58,20 +59,21 @@ public class frminicio extends javax.swing.JFrame {
 
         escritorio.setBackground(new java.awt.Color(102, 153, 255));
 
-        lblidusuario.setText("jLabel1");
+        jDesktopPane1.setBackground(new java.awt.Color(0, 153, 153));
 
-        lblnombre.setText("jLabel2");
+        lblidusuario.setText("IdUsuario");
 
-        lblapellido.setText("jLabel3");
+        jPanel1.setBackground(new java.awt.Color(0, 153, 153));
 
-        lblacceso.setText("jLabel4");
-
+        jRadioButton1.setBackground(new java.awt.Color(0, 153, 153));
         grupo.add(jRadioButton1);
         jRadioButton1.setText("Ventas");
 
+        jRadioButton2.setBackground(new java.awt.Color(0, 153, 153));
         grupo.add(jRadioButton2);
         jRadioButton2.setText("Salidas PD");
 
+        jRadioButton3.setBackground(new java.awt.Color(0, 153, 153));
         grupo.add(jRadioButton3);
         jRadioButton3.setText("Entradas");
 
@@ -113,6 +115,51 @@ public class frminicio extends javax.swing.JFrame {
                 .addComponent(jButton1)
                 .addContainerGap(24, Short.MAX_VALUE))
         );
+
+        lblacceso.setText("Tipo_Usuairo");
+
+        lblapellido.setText("Apellido");
+
+        lblnombre.setText("Nombre");
+
+        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
+        jDesktopPane1.setLayout(jDesktopPane1Layout);
+        jDesktopPane1Layout.setHorizontalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblapellido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblacceso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblnombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblidusuario, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(13, Short.MAX_VALUE))
+        );
+        jDesktopPane1Layout.setVerticalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addComponent(lblidusuario)
+                .addGap(18, 18, 18)
+                .addComponent(lblnombre)
+                .addGap(18, 18, 18)
+                .addComponent(lblapellido)
+                .addGap(18, 18, 18)
+                .addComponent(lblacceso)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jDesktopPane1.setLayer(lblidusuario, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(lblacceso, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(lblapellido, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(lblnombre, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         musismaster.setIcon(new javax.swing.ImageIcon(getClass().getResource("/File/Inicio.png"))); // NOI18N
         musismaster.setMnemonic('f');
@@ -201,6 +248,7 @@ public class frminicio extends javax.swing.JFrame {
         muherramientas.setText("Herramientas");
         menuBar.add(muherramientas);
 
+        mureportes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/File/reporte.png"))); // NOI18N
         mureportes.setText("Reportes");
         menuBar.add(mureportes);
 
@@ -223,34 +271,14 @@ public class frminicio extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lblapellido, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-                            .addComponent(lblacceso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblnombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblidusuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, 774, Short.MAX_VALUE))
+                .addComponent(escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, 761, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, 489, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(68, 68, 68)
-                .addComponent(lblidusuario)
-                .addGap(18, 18, 18)
-                .addComponent(lblnombre)
-                .addGap(18, 18, 18)
-                .addComponent(lblapellido)
-                .addGap(18, 18, 18)
-                .addComponent(lblacceso)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, 483, Short.MAX_VALUE)
+            .addComponent(jDesktopPane1)
         );
 
         pack();
@@ -398,6 +426,7 @@ public class frminicio extends javax.swing.JFrame {
     public static javax.swing.JDesktopPane escritorio;
     private javax.swing.ButtonGroup grupo;
     private javax.swing.JButton jButton1;
+    private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuItem jMenuItem1;
