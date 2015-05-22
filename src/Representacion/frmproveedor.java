@@ -554,7 +554,7 @@ public class frmproveedor extends javax.swing.JInternalFrame {
     
     
     private void btnsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalirActionPerformed
-        // TODO add your handling code here:
+        
         //this.dispose();
         this.getDesktopPane().getDesktopManager().closeFrame(this);
     }//GEN-LAST:event_btnsalirActionPerformed
