@@ -94,7 +94,7 @@ public class fproveedor {
    
    //Funcion Editar
    public boolean editar (vproveedor dts){
-       sSQL="update Proveedor set RUC=?,RazonSocial=?,Direccio=?,Telefono=?"+
+       sSQL="update Proveedor set RUC=?,RazonSocial=?,Direccion=?,Telefono=?"+
                " where idProveedor=?";
                   
        try {

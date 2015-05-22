@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Representacion;
 
 import Datos.fusuario;
@@ -10,15 +6,8 @@ import Logica.vusuario;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author HENRY
- */
 public class frmusuario extends javax.swing.JFrame {
 
-    /**
-     * Creates new form frmcliente
-     */
     public frmusuario() {
         initComponents();
         mostrar("");
@@ -105,7 +94,7 @@ public class frmusuario extends javax.swing.JFrame {
 
             tablalistado.setModel(modelo);
             ocultar_columnas();
-            lbltotalregistros.setText("Total Registros " + Integer.toString(func.totalregistros));
+            lbltotalregistros.setText("Total de Registros: " + Integer.toString(func.totalregistros));
 
         } catch (Exception e) {
             JOptionPane.showConfirmDialog(rootPane, e);

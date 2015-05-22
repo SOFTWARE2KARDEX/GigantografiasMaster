@@ -14,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author HENRY
  */
-public class frmcliente extends javax.swing.JFrame {
+public class frmcliente extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form frmcliente
@@ -141,7 +141,9 @@ public class frmcliente extends javax.swing.JFrame {
         btnsalir = new javax.swing.JButton();
         lbltotalregistros = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setClosable(true);
+        setIconifiable(true);
+        setTitle("Gestion de Clientes");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Cliente");

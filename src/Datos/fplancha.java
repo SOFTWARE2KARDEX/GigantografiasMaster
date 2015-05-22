@@ -151,4 +151,44 @@ public class fplancha {
            return false;
        }
    }
+   
+   
+   
+   public DefaultTableModel mostrarvista(String buscar){
+       DefaultTableModel modelo;
+       
+       String [] titulos = {"ID","Tamaño","Medida","Descripcion","Stock","Observacion"};
+       
+       String [] registro =new String [6];
+       
+       totalregistros=0;
+       modelo = new DefaultTableModel(null,titulos);
+       
+       sSQL="select * from Plancha where Medida like '%"+ buscar + "%'  and Stock >24 order by idPlancha";
+       
+       try {
+           Statement st= cn.createStatement();
+           ResultSet rs=st.executeQuery(sSQL);
+           
+           while(rs.next()){
+               registro [0]=rs.getString("idPlancha");
+               registro [1]=rs.getString("Tamaño");
+               registro [2]=rs.getString("Medida");
+               registro [3]=rs.getString("Descripcion");
+               registro [4]=rs.getString("Stock");
+               registro [5]=rs.getString("Observacion");
+                                             
+               totalregistros=totalregistros+1;
+               modelo.addRow(registro);
+               
+           }
+           return modelo;
+           
+       } catch (Exception e) {
+           JOptionPane.showConfirmDialog(null, e);
+           return null;
+       }
+     } 
+   
+   
 }

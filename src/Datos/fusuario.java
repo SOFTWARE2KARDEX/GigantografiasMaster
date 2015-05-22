@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Datos;
 
 import Logica.vusuario;
@@ -13,16 +9,13 @@ import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author HENRY
- */
 public class fusuario {
     private conexion mysql= new conexion();
     private Connection cn=mysql.conectar();
     private String sSQL="";
     public Integer totalregistros;
     
+        
     //Mostrar Consulta
     public DefaultTableModel mostrar(String buscar){
        DefaultTableModel modelo;
@@ -64,9 +57,7 @@ public class fusuario {
        }
      } 
    
-   
- 
-   
+      
    //Funcion Insertar
    public boolean insertar (vusuario dts){
        sSQL="insert into Usuario (nombre,apellido,dni,telefono,direccion,acceso,login,password,estado)" +
@@ -100,7 +91,7 @@ public class fusuario {
            return false;
        }
    }
-   
+      
    
    //Funcion Editar
    public boolean editar (vusuario dts){
@@ -135,7 +126,7 @@ public class fusuario {
            return false;
        }
    } 
-  
+     
    
    //Funcio Eliminar
    public boolean eliminar (vusuario dts){
@@ -161,10 +152,9 @@ public class fusuario {
            return false;
        }
    }
-   
-   
-   
-   
+  
+      
+   //Funcion Login
    public DefaultTableModel login(String login, String password){
        DefaultTableModel modelo;
        
@@ -175,8 +165,7 @@ public class fusuario {
        totalregistros=0;
        modelo = new DefaultTableModel(null,titulos);
        
-       sSQL="select idUsuario, nombre, apellido, acceso, login, password, estado"+
-               "from Usuario where login='"+ login + "' and password='"+password+"'  and estado='Habilitado' ";
+       sSQL="select idUsuario, nombre, apellido, acceso, login, password, estado from Usuario where login='"+ login + "' and password='" + password + "'  and estado='Habilitado' ";
        
        try {
            Statement st= cn.createStatement();
