@@ -497,6 +497,7 @@ public class frmproveedor extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         //this.dispose();
         this.getDesktopPane().getDesktopManager().closeFrame(this);
+        inhabilitar();
     }//GEN-LAST:event_btncancelarActionPerformed
     
     
@@ -554,9 +555,9 @@ public class frmproveedor extends javax.swing.JInternalFrame {
     
     
     private void btnsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalirActionPerformed
-        
         //this.dispose();
         this.getDesktopPane().getDesktopManager().closeFrame(this);
+        inhabilitar();
     }//GEN-LAST:event_btnsalirActionPerformed
 
     /**

@@ -409,6 +409,7 @@ public class frmsalida extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         //this.dispose();
         this.getDesktopPane().getDesktopManager().closeFrame(this);
+        inhabilitar();
     }//GEN-LAST:event_btncancelarActionPerformed
 
     private void tablalistadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablalistadoMouseClicked
@@ -458,6 +459,7 @@ public class frmsalida extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         //this.dispose();
         this.getDesktopPane().getDesktopManager().closeFrame(this);
+        inhabilitar();
     }//GEN-LAST:event_btnsalirActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

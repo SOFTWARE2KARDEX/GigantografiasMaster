@@ -45,6 +45,7 @@ public class frminicio extends javax.swing.JFrame {
         musalidas = new javax.swing.JMenu();
         contentMenuItem = new javax.swing.JMenuItem();
         aboutMenuItem = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
         muregistrar = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
         muconfiguraciones = new javax.swing.JMenu();
@@ -192,9 +193,8 @@ public class frminicio extends javax.swing.JFrame {
 
         menuBar.add(muarchivos);
 
-        musalidas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/File/salida.png"))); // NOI18N
+        musalidas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/File/salidas.png"))); // NOI18N
         musalidas.setMnemonic('h');
-        musalidas.setText("Salidas");
 
         contentMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/File/ventas.png"))); // NOI18N
         contentMenuItem.setMnemonic('c');
@@ -217,6 +217,9 @@ public class frminicio extends javax.swing.JFrame {
         musalidas.add(aboutMenuItem);
 
         menuBar.add(musalidas);
+
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/File/entrada.jpg"))); // NOI18N
+        menuBar.add(jMenu1);
 
         muregistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/File/agregar.png"))); // NOI18N
         muregistrar.setText("Registrar");
@@ -428,6 +431,7 @@ public class frminicio extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;

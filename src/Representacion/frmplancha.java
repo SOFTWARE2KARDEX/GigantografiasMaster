@@ -7,10 +7,6 @@ package Representacion;
 
 import Datos.fplancha;
 import Logica.vplancha;
-import java.awt.event.WindowEvent;
-import java.beans.PropertyVetoException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -45,7 +41,7 @@ public class frmplancha extends javax.swing.JInternalFrame {
         
         //Bloquea los botones
         btnguardar.setEnabled(false);
-        btncancelar.setEnabled(false);
+        btncancelar1.setEnabled(false);
         btneliminar.setEnabled(false);
 
         //Inicializa en blaco las cajas de texto
@@ -61,14 +57,14 @@ public class frmplancha extends javax.swing.JInternalFrame {
 
         //Desbloque las cajas de texto
         cbtamaño.setEnabled(true);
-        cbmedida.setEnabled(true);
+        //cbmedida.setEnabled(true);
         txtdescripcion.setEnabled(true);
         txtstock.setEnabled(true);
         txtobservacion.setEnabled(true);
         
         //Desbloque los botones
         btnguardar.setEnabled(true);
-        btncancelar.setEnabled(true);
+        btncancelar1.setEnabled(true);
         btneliminar.setEnabled(true);
 
         //Inicializa en blaco las cajas de texto
@@ -120,6 +116,7 @@ public class frmplancha extends javax.swing.JInternalFrame {
         btnnuevo = new javax.swing.JButton();
         btnguardar = new javax.swing.JButton();
         cbmedida = new javax.swing.JComboBox();
+        btncancelar1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablalistado = new javax.swing.JTable();
@@ -191,6 +188,11 @@ public class frmplancha extends javax.swing.JInternalFrame {
         });
 
         cbtamaño.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Grande", "Mediana", "Pequeña" }));
+        cbtamaño.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbtamañoActionPerformed(evt);
+            }
+        });
 
         btnnuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/File/nuevo.GIF"))); // NOI18N
         btnnuevo.setText("Nuevo");
@@ -208,7 +210,21 @@ public class frmplancha extends javax.swing.JInternalFrame {
             }
         });
 
-        cbmedida.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "72.4 x 61.5 u2", "64.5 x 50.8 u2", "65 x 55 u2", "44 x 40 u2", "51 x 40 u2" }));
+        cbmedida.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "72.4 x 61.5 u2", "64.5 x 50.8 u2", "65 x 55 u2", "51 x 40 u2", "44 x 40 u2" }));
+        cbmedida.setEnabled(false);
+        cbmedida.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbmedidaActionPerformed(evt);
+            }
+        });
+
+        btncancelar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/File/cancelar.png"))); // NOI18N
+        btncancelar1.setText("Cancelar");
+        btncancelar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btncancelar1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -241,14 +257,16 @@ public class frmplancha extends javax.swing.JInternalFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btnnuevo)
                         .addGap(14, 14, 14)
-                        .addComponent(btnguardar))
+                        .addComponent(btnguardar)
+                        .addGap(18, 18, 18)
+                        .addComponent(btncancelar1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(41, 41, 41)
                         .addComponent(txtidplancha, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -279,10 +297,12 @@ public class frmplancha extends javax.swing.JInternalFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtobservacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel7))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnnuevo)
-                    .addComponent(btnguardar))
+                .addGap(34, 34, 34)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btncancelar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnnuevo)
+                        .addComponent(btnguardar)))
                 .addContainerGap())
         );
 
@@ -342,7 +362,7 @@ public class frmplancha extends javax.swing.JInternalFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 517, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 511, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -562,12 +582,46 @@ public class frmplancha extends javax.swing.JInternalFrame {
     private void btnsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalirActionPerformed
         // TODO add your handling code here:
         this.getDesktopPane().getDesktopManager().closeFrame(this);
+        inhabilitar();
         //this.dispose();
     }//GEN-LAST:event_btnsalirActionPerformed
 
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_formKeyPressed
+
+    private void btncancelar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelar1ActionPerformed
+        // TODO add your handling code here:
+        this.getDesktopPane().getDesktopManager().closeFrame(this);
+        inhabilitar();
+    }//GEN-LAST:event_btncancelar1ActionPerformed
+
+    private void cbmedidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbmedidaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbmedidaActionPerformed
+
+    private void cbtamañoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbtamañoActionPerformed
+        cbmedida.setEnabled(true);
+        int posicion;
+        posicion = cbtamaño.getSelectedIndex();
+        
+        switch (posicion){
+            case 0:
+                cbmedida.removeAllItems();
+                cbmedida.addItem("72.4 x 61.5 u2");
+                break;
+            case 1:
+                cbmedida.removeAllItems();
+                cbmedida.addItem("64.5 x 50.8 u2");
+                cbmedida.addItem("65 x 55 u2");
+                break;
+            case 2:
+                cbmedida.removeAllItems();
+                cbmedida.addItem("51 x 40 u2");
+                cbmedida.addItem("44 x 40 u2");
+                break;
+        }
+    }//GEN-LAST:event_cbtamañoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -600,6 +654,7 @@ public class frmplancha extends javax.swing.JInternalFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new frmplancha().setVisible(true);
+                
             }
         });
     }
@@ -607,6 +662,7 @@ public class frmplancha extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnbuscar;
     private javax.swing.JButton btncancelar;
+    private javax.swing.JButton btncancelar1;
     private javax.swing.JButton btneliminar;
     private javax.swing.JButton btnguardar;
     private javax.swing.JButton btnnuevo;
