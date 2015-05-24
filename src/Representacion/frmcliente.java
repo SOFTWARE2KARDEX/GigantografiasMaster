@@ -30,6 +30,7 @@ public class frmcliente extends javax.swing.JInternalFrame {
      */
     public frmcliente() {
         initComponents();
+        
         mostrar("");
         inhabilitar();
         SLetras(txtrazonsocial);
