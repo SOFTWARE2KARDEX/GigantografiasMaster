@@ -10,9 +10,9 @@ public class frminicio extends javax.swing.JFrame {
     
     frmplancha form1 = new frmplancha();
     frmproveedor form2 = new frmproveedor();
-    frmcliente form3 =new frmcliente();
+    frmcliente form3 = new frmcliente();
     frmsalida form4 = new frmsalida();
-    frmventa form5 =new frmventa();
+    frmventa form5 = new frmventa();
     
     public frminicio() {
         initComponents();

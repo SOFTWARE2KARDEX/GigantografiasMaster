@@ -5,15 +5,13 @@
  */
 package Representacion;
 
-import Atxy2k.CustomTextField.RestrictedTextField;
 import Datos.fcliente;
 import Logica.vcliente;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import Atxy2k.CustomTextField.RestrictedTextField;
-import Datos.LimitarCaracteres;
 
-import Datos.SLetras;
+import Datos.LimitarCaracteres;
+import Datos.LetrasoCaracteres;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -25,46 +23,45 @@ import javax.swing.JTextField;
  */
 public class frmcliente extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form frmcliente
-     */
     public frmcliente() {
         initComponents();
-        
         mostrar("");
         inhabilitar();
-        SLetras(txtrazonsocial);
-        SDigitos(txtdocumento);
-        Limitar();
+        
+        LetrasoCaracteres.SDigitos(txtdocumento);
+        
+        //SLetras(txtrazonsocial);
+        //Limitar();
     }
     
-    public void Limitar(){
-        txtrazonsocial.setDocument(new LimitarCaracteres(txtrazonsocial,10));
-    }
+//    public void Limitar(){
+//        txtrazonsocial.setDocument(new LimitarCaracteres(txtrazonsocial,10));
+//    }
     
-    public void SLetras(JTextField  a){
-        a.addKeyListener(new KeyAdapter(){
-            public void keyTyped(KeyEvent e){
-                char c = e.getKeyChar();
-                if(Character.isDigit(c)){
-                    getToolkit().beep();
-                    e.consume();
-                }
-            }
-        });
-    }
-    
-    public void SDigitos(JTextField  a){
-        a.addKeyListener(new KeyAdapter(){
-            public void keyTyped(KeyEvent e){
-                char c = e.getKeyChar();
-                if(Character.isLetter(c)){
-                    getToolkit().beep();
-                    e.consume();
-                }
-            }
-        });
-    }
+//    public void SLetras(JTextField  a){
+//        a.addKeyListener(new KeyAdapter(){
+//            public void keyTyped(KeyEvent e){
+//                char c = e.getKeyChar();
+//                if(Character.isDigit(c)){
+//                    Toolkit.getDefaultToolkit().beep();
+//                    //getToolkit().beep();
+//                    e.consume();
+//                }
+//            }
+//        });
+//    }
+//    
+//    public void SDigitos(JTextField  a){
+//        a.addKeyListener(new KeyAdapter(){
+//            public void keyTyped(KeyEvent e){
+//                char c = e.getKeyChar();
+//                if(Character.isLetter(c)){
+//                    getToolkit().beep();
+//                    e.consume();
+//                }
+//            }
+//        });
+//    }
     
     private String accion = "guardar";
 
@@ -103,18 +100,16 @@ public class frmcliente extends javax.swing.JInternalFrame {
     }
 
     void habilitar() {
-         //Invisible
-        
-        
-        //Desbloque las cajas de texto
+     
+        //Desbloqueo de las cajas de texto
         cbtipodoc.setEnabled(true);
-        txtdocumento.setEnabled(true);
+        //txtdocumento.setEnabled(true);
         txtrazonsocial.setEnabled(true);
         txtdireccion.setEnabled(true);
         txtemail.setEnabled(true);
         txttelefono.setEnabled(true);
        
-        //Desbloque los botones
+        //Desbloqueo de los botones
         btnguardar.setEnabled(true);
         btncancelar.setEnabled(true);
         btneliminar.setEnabled(true);
@@ -127,7 +122,6 @@ public class frmcliente extends javax.swing.JInternalFrame {
         txtemail.setText("");
         txttelefono.setText("");
         
-
     }
 
     void mostrar(String buscar) {
@@ -213,6 +207,7 @@ public class frmcliente extends javax.swing.JInternalFrame {
             }
         });
 
+        txtdocumento.setEnabled(false);
         txtdocumento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtdocumentoActionPerformed(evt);
@@ -305,10 +300,9 @@ public class frmcliente extends javax.swing.JInternalFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(txtrazonsocial, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE)
                                     .addComponent(txtdocumento)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtemail, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txttelefono, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtdireccion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txtemail, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txttelefono, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtdireccion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btnnuevo)
                         .addGap(14, 14, 14)
@@ -668,18 +662,20 @@ public class frmcliente extends javax.swing.JInternalFrame {
 
     private void cbtipodocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbtipodocActionPerformed
         
+        txtdocumento.setEnabled(true);
+        
         int tipodoc = cbtipodoc.getSelectedIndex();
         
         switch(tipodoc){
             case 0:
-                RestrictedTextField restricted = new RestrictedTextField(txtdocumento);
-                restricted.setLimit(8);
-                restricted.setOnlyNums(true);
+                
+                txtdocumento.setDocument(new LimitarCaracteres(txtdocumento,8));
+                
                 break;
             case 1:
-                RestrictedTextField restricted1 = new RestrictedTextField(txtdocumento);
-                restricted1.setLimit(11);
-                restricted1.setOnlyNums(true);
+                
+                txtdocumento.setDocument(new LimitarCaracteres(txtdocumento,11));
+                
                 break;
         }
     }//GEN-LAST:event_cbtipodocActionPerformed

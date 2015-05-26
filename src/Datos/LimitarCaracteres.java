@@ -1,3 +1,4 @@
+
 package Datos;
 
 import javax.swing.JTextField;
@@ -20,7 +21,7 @@ public class LimitarCaracteres extends PlainDocument{
     
     public void insertString(int arg0, String arg1, AttributeSet arg2) throws BadLocationException{
         if((editor.getText().length()+arg1.length()) > this.num){
-            return; 
+            return;
         }super.insertString(arg0, arg1, arg2);
     }
 }
