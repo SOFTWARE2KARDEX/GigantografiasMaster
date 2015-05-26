@@ -5,6 +5,8 @@
  */
 package Representacion;
 
+import Datos.LetrasoCaracteres;
+import Datos.LimitarCaracteres;
 import Datos.fproveedor;
 import Logica.vproveedor;
 import javax.swing.JOptionPane;
@@ -23,6 +25,14 @@ public class frmproveedor extends javax.swing.JInternalFrame {
         initComponents();
         mostrar("");
         inhabilitar();
+        
+        LetrasoCaracteres.SDigitos(txtruc);
+        Limitar();        
+        
+    }
+    
+    public void Limitar(){
+        txtruc.setDocument(new LimitarCaracteres(txtruc,11));
     }
     
     private String accion = "guardar";
