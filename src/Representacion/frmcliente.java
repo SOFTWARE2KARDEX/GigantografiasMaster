@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Representacion;
 
 import Datos.fcliente;
@@ -30,38 +26,7 @@ public class frmcliente extends javax.swing.JInternalFrame {
         
         LetrasoCaracteres.SDigitos(txtdocumento);
         
-        //SLetras(txtrazonsocial);
-        //Limitar();
     }
-    
-//    public void Limitar(){
-//        txtrazonsocial.setDocument(new LimitarCaracteres(txtrazonsocial,10));
-//    }
-    
-//    public void SLetras(JTextField  a){
-//        a.addKeyListener(new KeyAdapter(){
-//            public void keyTyped(KeyEvent e){
-//                char c = e.getKeyChar();
-//                if(Character.isDigit(c)){
-//                    Toolkit.getDefaultToolkit().beep();
-//                    //getToolkit().beep();
-//                    e.consume();
-//                }
-//            }
-//        });
-//    }
-//    
-//    public void SDigitos(JTextField  a){
-//        a.addKeyListener(new KeyAdapter(){
-//            public void keyTyped(KeyEvent e){
-//                char c = e.getKeyChar();
-//                if(Character.isLetter(c)){
-//                    getToolkit().beep();
-//                    e.consume();
-//                }
-//            }
-//        });
-//    }
     
     private String accion = "guardar";
 
@@ -481,9 +446,7 @@ public class frmcliente extends javax.swing.JInternalFrame {
         inhabilitar();
     }//GEN-LAST:event_btnsalirActionPerformed
 
-    
-    
-    
+  
     //Orden al dar enter
     private void txtidclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtidclienteActionPerformed
         // TODO add your handling code here:
@@ -515,10 +478,6 @@ public class frmcliente extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txttelefonoActionPerformed
 
     
-    
-    
-    
-    
     //Boton Nuevo
     private void btnnuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnuevoActionPerformed
         // TODO add your handling code here:
@@ -527,8 +486,6 @@ public class frmcliente extends javax.swing.JInternalFrame {
         accion = "guardar";
     }//GEN-LAST:event_btnnuevoActionPerformed
 
-    
-    
     
     //Boton Guardar
     private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
@@ -606,8 +563,7 @@ public class frmcliente extends javax.swing.JInternalFrame {
         inhabilitar();
     }//GEN-LAST:event_btncancelarActionPerformed
 
-
-    
+   
    //Botón Eliminar
     private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
         // TODO add your handling code here:
@@ -635,8 +591,7 @@ public class frmcliente extends javax.swing.JInternalFrame {
         mostrar(txtbuscar.getText());
     }//GEN-LAST:event_btnbuscarActionPerformed
 
-    
-    
+  
     //Tabla datalistado
     private void tablalistadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablalistadoMouseClicked
         // TODO add your handling code here:
